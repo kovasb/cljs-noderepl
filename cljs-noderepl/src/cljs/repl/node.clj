@@ -57,7 +57,7 @@
         (str "eval(require('fs').readFileSync('"
              (string/replace (load-as-tempfile "cljs/repl/node_repl.js") "\\" "/")
              "','utf8'))")
-        process (let [pb (ProcessBuilder. ["node" "-e" launch-script])]
+        process (let [pb (ProcessBuilder. ["/Users/kovasb/tools/plask/build/Release/Plask.app/Contents/MacOS/Plask" "-e" launch-script])]
                   (.start pb))]
     {:process process
      :input (output-filter (io/reader (.getInputStream process))
